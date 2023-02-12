@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION">
+	<aura:attribute name="nearbyCustomer" type="Object" />
+	<aura:attribute name="selected" type="Boolean" />
+</aura:event>

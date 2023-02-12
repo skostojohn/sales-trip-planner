@@ -1,0 +1,11 @@
+<aura:component controller="NearbyCustomerListControllerApex" >
+    <aura:attribute name="nearbyCustomers" type="Object[]" />
+    <aura:registerEvent name="addMarkers" type="c:addMarkers" />
+    <aura:handler event="c:baseCustomerSelected" action="{!c.getNearbyCustomers}" />
+   
+    <div class="slds-scrollable_y">
+    <aura:iteration items="{!v.nearbyCustomers}" var="item" indexVar="i">
+        <div><c:NearbyCustomerItem nearbyCustomer="{!item}" /></div>
+    </aura:iteration>
+    </div>
+</aura:component>

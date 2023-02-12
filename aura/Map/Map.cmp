@@ -1,0 +1,23 @@
+<aura:component >
+    <aura:attribute name="baseCustomer" type="Object"></aura:attribute>
+    <aura:attribute name="baselat" type="Decimal"></aura:attribute>
+    <aura:attribute name="baselong" type="Decimal"></aura:attribute>
+    <aura:attribute name="map" type="Object"></aura:attribute>
+    <aura:attribute name="markers" type="Object[]"></aura:attribute>
+    <aura:attribute name="recordtocheck" type="Object"></aura:attribute>
+    
+    <aura:registerEvent name="markerClicked" type="c:markerClicked" />
+    
+    <aura:handler event="c:baseCustomerSelected" action="{!c.updateBaseCustomer}" />
+    <aura:handler event="c:addMarkers" action="{!c.addMarkers}" />
+    <aura:handler event="c:nearbyCustomerItemToggled" action="{!c.toggleNearbyCustomerItem}" />
+    <aura:handler name="change" value="{!v.recordtocheck}" action="{!c.updateCheckboxes}"/>
+    
+    <ltng:require styles="{!$Resource.leafletjs + '/leaflet.css'}" />
+    <ltng:require scripts="{!$Resource.leafletjs + '/leaflet.js'}" 
+        afterScriptsLoaded="{!c.afterLeafletLoaded}" />
+
+    <div class ="slds-m-around_x-small" id="mapdiv" aura:id="mapid"></div>
+    <div><c:Commands markers="{!v.markers}" baseCustomer="{!v.baseCustomer}"/></div>
+
+</aura:component>

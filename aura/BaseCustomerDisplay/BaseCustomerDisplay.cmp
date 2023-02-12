@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:attribute name="record" type="Object" />
+    <aura:handler event="c:baseCustomerSelected" action="{!c.updateDisplayInfo}" />
+  
+    <article class="slds-card slds-m-around_x-small">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__body">
+          <aura:if isTrue="{!!empty(v.record)}">
+            <h2>
+              <span class="slds-text-heading_small red">Base Account: {!v.record.Name}</span>
+            </h2>
+            <h2>
+              <span class="red">{!v.record.BillingStreet+ ', ' + v.record.BillingCity + ', ' + v.record.BillingState + ' ' + v.record.BillingPostalCode}</span>
+            </h2>
+            </aura:if>
+          </div>
+        </header>
+      </div>
+    </article>
+
+</aura:component>

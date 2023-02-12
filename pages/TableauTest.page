@@ -1,0 +1,4 @@
+<apex:page standardController="Account" >
+  <apex:iframe src="https://public.tableau.com/views/TableauPublicTest_11/Sheet1?:showVizHome=no&:embed=true&CUST_ID={!Account.Site}" id="theIframe"/>   
+  <apex:iframe src="https://public.tableau.com/views/AccountsPerCity/Sheet1?:showVizHome=no&:embed=true" id="theIframe2" /> 
+</apex:page>

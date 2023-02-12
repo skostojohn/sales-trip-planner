@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION">
+	<aura:attribute name="records" type="Object[]" />
+</aura:event>

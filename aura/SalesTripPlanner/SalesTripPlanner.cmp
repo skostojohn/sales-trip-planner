@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+
+    <div class="slds-grid">
+        <div class="slds-size_1-of-3 slds-p-around_xx-small"><c:BaseCustomerSearch /><c:BaseCustomerDisplay /><c:NearbyCustomerList /></div>
+        <div class="slds-size_2-of-3 slds-p-around_xx-small"><c:Map baselat="47.62066" baselong="-122.34926" /></div>
+    </div>
+ 
+</aura:component>

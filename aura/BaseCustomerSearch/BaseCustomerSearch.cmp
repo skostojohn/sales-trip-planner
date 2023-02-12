@@ -1,0 +1,30 @@
+<aura:component controller="BaseCustomerSearchControllerApex" >
+    
+    <aura:attribute name="server_result" type="object[]" />
+    <aura:attribute name="searchString" type="String" />
+    <aura:handler event="c:baseCustomerSelected" action="{!c.clearSearch}" />
+    
+    <div class=" slds-p-around_x-small">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                            <ui:inputText class="slds-input slds-combobox__input" aura:id="searchbox" value="{!v.searchString}" updateOn="keyup"
+                                placeholder="Search for Base Account" keyup="{!c.runSearch}"/>
+                        </div>
+                        <aura:if isTrue="{! and(greaterthanorequal(v.server_result.length,1),v.searchString != '') }">
+                            <div id="listbox-unique-id" role="listbox">
+                                <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="presentation">
+                                    <aura:iteration items="{!v.server_result}" var="item" indexVar="i">
+                                        <c:BaseCustomerSearchResult account="{!item}" />
+                                    </aura:iteration>
+                                </ul>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component controller="CommandsControllerApex">
+    <aura:attribute name="phonenumber" type="String" />
+    <aura:attribute name="markers" type="Object[]" />
+    <aura:attribute name="baseCustomer" type="Object"></aura:attribute>
+    <aura:attribute name="url" type="String"></aura:attribute>
+    <aura:handler event="c:nearbyCustomerItemToggled" action="{!c.clearURL}" />
+    <aura:handler event="c:markerClicked" action="{!c.clearURL}" />
+       <div class="slds-grid">
+        <div class="slds-size_5-of-15 slds-p-around_xx-small"><lightning:button variant="brand" label="Show Best Route" onclick="{!c.showDirections}" /></div>
+        <div class="slds-size_2-of-15 slds-p-around_xx-small"><lightning:input placeholder="Phone Number" name="phone" variant="label-hidden" value="{!v.phonenumber}" /></div>
+        <div class="slds-size_8-of-15 slds-p-around_xx-small"><lightning:button variant="brand" label="SMS Best Route" onclick="{!c.sendDirections}" /></div>
+    </div>
+</aura:component>
